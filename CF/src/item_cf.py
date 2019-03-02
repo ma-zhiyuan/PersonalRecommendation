@@ -8,7 +8,7 @@ from __future__ import division
 import sys
 sys.path.append("../util")
 
-import util.reader as reader
+import CF.util.reader as reader
 import math
 import operator
 
@@ -75,7 +75,7 @@ def cal_item_sim(user_click, user_click_time):
               item_sim_score[itemid_i].setdefault(itemid_j, 0)
               item_sim_score[itemid_i][itemid_j] = sim_score
     for itemid in item_sim_score:
-        item_sim_score_sorted[itemid] = sorted(item_sim_score[itemid].iteritems(), key = \
+        item_sim_score_sorted[itemid] = sorted(item_sim_score[itemid].items(), key = \
                                                 operator.itemgetter(1), reverse=True)
     return item_sim_score_sorted
 

@@ -8,7 +8,7 @@ from __future__ import division
 import sys
 
 sys.path.append("../util")
-import util.reader as reader
+import CF.util.reader as reader
 import math
 import operator
 
@@ -101,8 +101,7 @@ def cal_user_sim(item_click_by_user, user_click_time):
             user_sim_info[user_i].setdefault(user_j, 0)
             user_sim_info[user_i][user_j] = cotime/math.sqrt(user_click_count[user_i]*user_click_count[user_j])
     for user in user_sim_info:
-        user_sim_info_sorted[user] = sorted(user_sim_info[user].iteritems(), key =
-                                            operator.itemgetter(1), reverse=True)
+        user_sim_info_sorted[user] = sorted(user_sim_info[user].items(), key = operator.itemgetter(1), reverse=True)
     return user_sim_info_sorted
 
 
